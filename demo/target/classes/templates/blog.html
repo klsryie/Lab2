@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/blog">Блог</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <h1>БЛОГ</h1>
+
+        <div>
+            <a href="/blog/add">Добавить</a>
+        </div>
+
+        <div th:each="el: ${posts}">
+            <h2 th:text="${el.GetTitle()}" />
+            <p th:text="${el.GetAnons()}" />
+            <a th:href="'/blog/' + ${el.GetId()}"> Детальнее</a>
+
+            <form th:action="'/blog/' + ${el.GetId} + '/remove'" method="post">
+                <button type="submit">Удалить</button>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

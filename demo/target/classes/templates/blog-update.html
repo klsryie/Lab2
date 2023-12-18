@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/blog">Блог</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div>
+        <h1>Добвавление</h1>
+        <form method="post" th:each="el: ${post}">
+            <input type="text" name="title" placeholder="Название страницы" th:value="${el.GetTitle()}">
+            <input type="text" name="anons" placeholder="Анонс" th:value="${el.GetAnons()}">
+            <textarea name="text" placeholder="Текст" th:text="${el.GetText()}"  />
+
+            <button type="submit">Добавть</button>
+        </form>
+    </div>
+</body>
+</html>
